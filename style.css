@@ -1,0 +1,549 @@
+/* Import de la police Inter */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* Configuration pour l'impression A4 */
+@page {
+    size: A4;
+    margin: 1cm 0.8cm 1cm 0.8cm;
+}
+
+/* Reset et base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 11px;
+    line-height: 1.3;
+    color: #333;
+    background: #f5f5f5;
+    padding: 20px;
+}
+
+/* Bouton d'impression */
+.print-button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.print-button {
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.3);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.print-button:hover {
+    background: linear-gradient(135deg, #2980b9, #1f5f8b);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(52, 152, 219, 0.4);
+}
+
+.print-button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.print-button i {
+    font-size: 16px;
+}
+
+/* Container principal */
+.cv-container {
+    max-width: 21cm;
+    margin: 0 auto;
+    background: white;
+    height: 29.7cm;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+/* En-tête */
+.header {
+    background: #2c3e50;
+    color: white;
+    padding: 12px 15px;
+    margin-bottom: 10px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.photo {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid #34495e;
+    flex-shrink: 0;
+}
+
+.photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.header-info h1 {
+    font-size: 22px;
+    font-weight: 700;
+    margin-bottom: 3px;
+    letter-spacing: 1px;
+}
+
+.header-info h2 {
+    font-size: 13px;
+    font-weight: 400;
+    opacity: 0.9;
+}
+
+/* Contenu principal */
+.main-content {
+    display: flex;
+    gap: 15px;
+    flex: 1;
+    padding: 0 15px 15px 15px;
+}
+
+/* Colonne gauche (30%) */
+.left-column {
+    width: 30%;
+    background: #f8f9fa;
+    padding: 12px;
+    border-radius: 6px;
+}
+
+/* Colonne droite (70%) */
+.right-column {
+    width: 70%;
+    padding: 0 8px;
+}
+
+/* Sections communes */
+section {
+    margin-bottom: 15px;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+h3 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #3498db;
+    padding-bottom: 2px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+h3 i {
+    font-size: 11px;
+    color: #3498db;
+}
+
+/* Coordonnées */
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 6px;
+    font-size: 9px;
+}
+
+.contact-item i {
+    color: #3498db;
+    width: 10px;
+    flex-shrink: 0;
+    margin-top: 1px;
+    font-size: 8px;
+}
+
+.contact-item span {
+    line-height: 1.3;
+}
+
+/* Compétences et centres d'intérêt */
+.skills ul,
+.interests ul,
+.projects ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.skills li,
+.interests li,
+.projects li {
+    margin-bottom: 4px;
+    font-size: 9px;
+    padding-left: 10px;
+    position: relative;
+}
+
+.skills li::before,
+.interests li::before,
+.projects li::before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+/* Langues */
+.language-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 9px;
+}
+
+.language-item .level {
+    color: #666;
+    font-weight: 500;
+}
+
+/* Profil */
+.profile p {
+    font-size: 10px;
+    line-height: 1.4;
+    text-align: justify;
+}
+
+/* Expérience et Formation */
+.exp-item,
+.edu-item {
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ecf0f1;
+}
+
+.exp-item:last-child,
+.edu-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.exp-header,
+.edu-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 5px;
+}
+
+.exp-header h4,
+.edu-header h4 {
+    font-size: 11px;
+    font-weight: 600;
+    color: #2c3e50;
+    margin: 0;
+}
+
+.date {
+    font-size: 9px;
+    color: #666;
+    font-weight: 500;
+    white-space: nowrap;
+}
+
+.company,
+.school {
+    font-size: 10px;
+    color: #3498db;
+    font-weight: 500;
+    margin-bottom: 6px;
+}
+
+.description {
+    font-size: 9px;
+    line-height: 1.3;
+    margin-bottom: 6px;
+    text-align: justify;
+}
+
+.achievements {
+    list-style: none;
+    padding-left: 0;
+}
+
+.achievements li {
+    font-size: 9px;
+    margin-bottom: 3px;
+    padding-left: 10px;
+    position: relative;
+    line-height: 1.2;
+}
+
+.achievements li::before {
+    content: "•";
+    color: #3498db;
+    position: absolute;
+    left: 0;
+}
+
+.results {
+    font-size: 9px;
+    font-style: italic;
+    color: #27ae60;
+    margin-top: 6px;
+    padding: 4px 8px;
+    background: #f8f9fa;
+    border-left: 3px solid #27ae60;
+    border-radius: 3px;
+}
+
+/* Projets */
+.projects li {
+    margin-bottom: 4px;
+}
+
+/* Responsive pour écran */
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column;
+    }
+    
+    .left-column,
+    .right-column {
+        width: 100%;
+    }
+    
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+}
+
+/* Optimisations pour l'impression */
+@media print {
+    @page {
+        margin: 0.8cm;
+        size: A4;
+    }
+    
+    body {
+        font-size: 11px;
+        background: #fff;
+        padding: 0;
+        line-height: 1.3;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    /* Supprimer les informations d'en-tête et pied de page */
+    @page {
+        @top-left { content: ""; }
+        @top-center { content: ""; }
+        @top-right { content: ""; }
+        @bottom-left { content: ""; }
+        @bottom-center { content: ""; }
+        @bottom-right { content: ""; }
+    }
+    
+    .print-button-container {
+        display: none;
+    }
+    
+    .cv-container {
+        max-width: none;
+        margin: 0;
+        box-shadow: none;
+        border-radius: 0;
+        height: auto;
+    }
+    
+    .main-content {
+        padding: 0 15px 15px 15px;
+        gap: 15px;
+    }
+    
+    .left-column {
+        padding: 12px;
+    }
+    
+    .right-column {
+        padding: 0 8px;
+    }
+    
+    section {
+        margin-bottom: 15px;
+    }
+    
+    .header {
+        padding: 12px 15px;
+        margin-bottom: 10px;
+    }
+    
+    .header-content {
+        gap: 15px;
+    }
+    
+    .photo {
+        width: 70px;
+        height: 70px;
+    }
+    
+    .header-info h1 {
+        font-size: 22px;
+        margin-bottom: 3px;
+    }
+    
+    .header-info h2 {
+        font-size: 13px;
+    }
+    
+    h3 {
+        font-size: 11px;
+        margin-bottom: 8px;
+    }
+    
+    .contact-item {
+        margin-bottom: 6px;
+        font-size: 9px;
+    }
+    
+    .skills li,
+    .interests li,
+    .projects li {
+        margin-bottom: 4px;
+        font-size: 9px;
+    }
+    
+    .language-item {
+        margin-bottom: 5px;
+        font-size: 9px;
+    }
+    
+    .profile p {
+        font-size: 10px;
+        line-height: 1.4;
+    }
+    
+    .exp-item,
+    .edu-item {
+        margin-bottom: 12px;
+        padding-bottom: 12px;
+    }
+    
+    .exp-header h4,
+    .edu-header h4 {
+        font-size: 11px;
+    }
+    
+    .date {
+        font-size: 9px;
+    }
+    
+    .company,
+    .school {
+        font-size: 10px;
+        margin-bottom: 6px;
+    }
+    
+    .description {
+        font-size: 9px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+    }
+    
+    .achievements li {
+        font-size: 9px;
+        margin-bottom: 3px;
+        line-height: 1.2;
+    }
+    
+    .results {
+        font-size: 9px;
+        margin-top: 6px;
+        padding: 4px 8px;
+    }
+    
+    .header {
+        background: #2c3e50 !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .left-column {
+        background: #f8f9fa !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    h3 {
+        color: #2c3e50 !important;
+        border-bottom-color: #3498db !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .company,
+    .school {
+        color: #3498db !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .results {
+        background: #f8f9fa !important;
+        border-left-color: #27ae60 !important;
+        color: #27ae60 !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .achievements li::before,
+    .skills li::before,
+    .interests li::before,
+    .projects li::before {
+        color: #3498db !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    .contact-item i,
+    h3 i {
+        color: #3498db !important;
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+    
+    /* Éviter les coupures de page */
+    .exp-item,
+    .edu-item {
+        page-break-inside: avoid;
+    }
+    
+    section {
+        page-break-inside: avoid;
+    }
+}
